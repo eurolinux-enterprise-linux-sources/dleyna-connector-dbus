@@ -3,7 +3,7 @@
 
 Name:           dleyna-connector-dbus
 Version:        0.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        D-Bus connector for dLeyna services
 
 License:        LGPLv2
@@ -12,7 +12,7 @@ Source0:        https://01.org/dleyna/sites/default/files/downloads/%{name}-%{ve
 Patch0:         0001-Connector-Don-t-crash-when-trying-to-unwatch-non-exi.patch
 
 BuildRequires:  dbus-devel
-BuildRequires:  dleyna-core-devel
+BuildRequires:  dleyna-core-devel >= 0.5.0
 BuildRequires:  glib2-devel >= 2.28
 BuildRequires:  pkgconfig autoconf automake libtool
 
@@ -61,6 +61,10 @@ find $RPM_BUILD_ROOT -name '*.la' -delete
 
 
 %changelog
+* Fri Mar 10 2017 Debarshi Ray <rishi@fedoraproject.org> - 0.2.0-2
+- Rebuild for new dleyna-core soname
+Resolves: #1431221
+
 * Mon Jun 01 2015 Debarshi Ray <rishi@fedoraproject.org> - 0.2.0-1
 - Initial RHEL import
 Resolves: #1221261
